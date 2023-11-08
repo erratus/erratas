@@ -1,0 +1,49 @@
+<title>Register</title>
+{% extends 'base.html' %}
+{% block main %}
+
+<br>
+<div class="container">
+      <h4>Registration!!</h4>
+      <form method="post">
+          <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" placeholder="Please enter your email address" id="exampleInputEmail1" aria-describedby="emailHelp" required>
+          </div>
+          <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Password</label>
+              <input type="password" class="form-control" placeholder="Please enter the password" id="exampleInputPassword1" required>
+          </div>
+          <div class="mb-3">
+              <div class="d-flex">
+                  <div class="country-code-box">
+                      <label for="country" class="form-label">Country Code:</label>
+                      <select id="country" name="country" class="form-control" required>
+                        <option value="" disabled selected></option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+1">+1 (United States)</option>
+                        <option value="+44">+44 (United Kingdom)</option>
+                        <option value="+33">+33 (France)</option>
+                        <option value="+49">+49 (Germany)</option>
+                        <option value="+81">+81 (Japan)</option>
+                        <option value="+86">+86 (China)</option>
+                        <option value="+91">+91 (India)</option>
+                        <option value="+61">+61 (Australia)</option>
+                        <option value="+34">+34 (Spain)</option>
+                        <option value="+39">+39 (Italy)</option>
+                        <option value="+7">+7 (Russia)</option>
+                      </select>
+                  </div>
+                  <div class="phone-number-input">
+                      <label for="phoneNumber" class="form-label">Phone number</label>
+                      <input type="tel" class="form-control" id="phoneNumber" placeholder="123-456-3421" required pattern="\d{3}-\d{3}-\d{4}">
+                  </div>
+              </div>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+  </div>
+  
+  
+
+{% endblock main %}

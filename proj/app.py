@@ -1,4 +1,4 @@
-from flask import Flask,render_template,request
+from flask import Flask,render_template,request,redirect,url_for
 import pandas as pd
 app = Flask(__name__)
 
@@ -8,9 +8,20 @@ user_df = pd.DataFrame(columns=['username', 'password', 'email', 'name', 'countr
 def home():
     return render_template('homepage.html',title='Home Page')
 
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template('login.html',title='login Page')
+    if request.method == 'POST':
+        username = request.form['username']
+        password = request.form['password']
+
+        # Check if the username and password match the values in user_df
+        if (user_df['username'] == username).any() and (user_df['password'] == password).any():
+            return redirect(url_for('success', name=username))
+        else:
+            error_message = 'Invalid username or password. Please try again.'
+            return render_template('login.html', title='Login Page', error_message=error_message)
+
+    return render_template('login.html', title='Login Page')
 
 @app.route('/test')
 def test():

@@ -1,0 +1,21 @@
+<title>Login</title>
+{% extends 'base.html' %}
+{% block main %}
+<br>
+<br>
+<br>
+<br>
+<div class="container d-flex justify-content-center align-items-center">
+    <form action="/login" method="post">
+        <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input type="text"  name="username" class="form-control form-control-lg" maxlength="30" placeholder="Enter your username" id="username" required>
+        </div>
+        <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" name="password" class="form-control form-control-lg" maxlength="20" minlength="8" placeholder="Enter your password" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+{% endblock main %}

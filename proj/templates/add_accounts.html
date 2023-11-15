@@ -15,14 +15,20 @@
             <label for="account_no" class="form-label">Account No.</label>
             <input type="text" name="account_no" class="form-control form-control-lg" maxlength="20" minlength="8" placeholder="Enter your Account no." id="account_no" required>
         </div>
+    </form>
+</div>
+
+<div class="container d-flex justify-content-center align-items-center">
+    <form action="{{ url_for('add_accounts', username=username) }}" method="post">
         <button type="submit" class="btn btn-primary">Add more accounts</button>
     </form>
+</div>
 
+<div class="container d-flex justify-content-center align-items-center">
     <form action="{{ url_for('finish_adding_accounts', username=username) }}" method="get">
         <button type="submit" class="btn btn-success">Finish Adding Accounts</button>
     </form>
 </div>
-
 
 {% endblock main %}
 
